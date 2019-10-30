@@ -5,7 +5,7 @@ class ThreeSum {
 	int[] arr = {-1,-2,7,4,-2,1,-3,6,9,2,-5};
 	Arrays.sort(arr); 
 	int n=arr.length;; 
-	int c=0;
+	int cnt=0;
 	for (int i=0; i<n-1; i++) 
 	{ 
 		int before = i + 1; 
@@ -14,7 +14,7 @@ class ThreeSum {
 		{ 
 			if (arr[i] + arr[before] + arr[next] == 0) 
 			{ 
-				c++;	
+				cnt++;	
 				before++; 
 				next--;  
 			} 
@@ -24,7 +24,7 @@ class ThreeSum {
 				next--; 
 		} 
 	} 
-	return c;
+	return cnt;
  }
 
 	public static void main (String[] args) { 

@@ -1,16 +1,16 @@
 class Solution {
 	public static String Josephus(int a, int b) {
 		// fill you code Here
-		CicularDoubleLinkedList cLl = new CicularDoubleLinkedList();
+		CicularDoubleLinkedList cL = new CicularDoubleLinkedList();
 		for (int i = 0; i < a; i++) {
 			Node node = new Node(i);
 
-			cLl.add(i);
+			cL.add(i);
 		}
 
-		cLl.formCircle();
+		cL.formCircle();
 		int inx = 1;
-		Node temp = cLl.head;
+		Node temp = cL.head;
 		int eliminate
 		 = 0;
 		String toReturn =" ";

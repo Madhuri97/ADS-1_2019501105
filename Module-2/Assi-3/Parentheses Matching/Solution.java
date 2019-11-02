@@ -9,19 +9,19 @@ class Solution{
 		int size = 0;
 		//for each loop 
 		for(String eachBrace : braces) {
-			if(eachBrace.equals("[") ||  eachBrace.equals("(") ||  eachBrace.equals("{")){
+			if(eachBrace.equals("[") ||  eachBrace.equals("(") ||  eachBrace.equals("{")) {
 				stack[size++] = eachBrace;   //inserting each brace into stack named array
-			}else if(size > 0){
+			} else if(size > 0) {
 				String recentBrace = stack[size -1];   //new array named recentBrace
 				
 				//checking recentBrace is closed of eachBrace 
-				if(recentBrace.equals("[") && eachBrace.equals("]")){
+				if(recentBrace.equals("[") && eachBrace.equals("]")) {
 					size--;     //poping up the top element by reducing size
 				}
-				else if(recentBrace.equals("(") && eachBrace.equals(")")){
+				else if(recentBrace.equals("(") && eachBrace.equals(")")) {
 					size--;
 				}
-				else if(recentBrace.equals("{") && eachBrace.equals("}")){
+				else if(recentBrace.equals("{") && eachBrace.equals("}")) {
 					size--;
 				}
 			}		

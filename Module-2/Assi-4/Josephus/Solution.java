@@ -1,42 +1,39 @@
 class Solution {
-	public static class Node { 
-        public int data ; 
-		public Node next; 
-		
-        public Node( int data ) { 
-            this.data = data; 
-        } 
-    }
 	public static String Josephus(int a, int b) {
 		// fill you code Here
-		Node head = new Node(1); 
-        Node prev = head; 
-        for(int i = 2; i <= b; i++) 
-        { 
-            prev.next = new Node(i); 
-            prev = prev.next; 
-        } 
-		prev.next = head; 
-		Node ptr1 = head, ptr2 = head; 
-          
-        while(ptr1.next != ptr1) 
-        { 
-              
-            // Find m-th node 
-            int count = 1; 
-            while(count != a) 
-            { 
-                ptr2 = ptr1; 
-                ptr1 = ptr1.next; 
-                count++; 
+		CicularDoubleLinkedList cLl = new CicularDoubleLinkedList();
+		for (int i = 0; i < a; i++) {
+			Node node = new Node(i);
+
+			cLl.add(i);
+		}
+
+		cLl.formCircle();
+		int inx = 1;
+		Node temp = cLl.head;
+		int eliminate
+		 = 0;
+		String toReturn =" ";
+		while(eliminate
+		 != a) {
+			temp = temp.next;
+			inx++;
+			if(inx == b) {
+				inx = 1;
+				toReturn += temp.value + " ";
+
+				Node prevNode = temp.prev;
+				Node nextNode = temp.next;
+
+				prevNode.next = nextNode;
+				nextNode.prev = prevNode;
+
+				eliminate
+				++;
+				temp = temp.next;
 			}
-			
-			ptr2.next = ptr1.next; 
-            ptr1 = ptr2.next; 
-        } 
-        System.out.println ("Last person left standing " + 
-                 "(Josephus Position) is " + ptr1.data); 
-    }
-		return "";
+		}
+		toReturn = toReturn.trim();
+		return toReturn;
 	}
 }

@@ -14,9 +14,9 @@ import org.junit.Assert;
 import static org.junit.Assert.assertEquals;
 
 public class TestJUnit {
-	@Test
+	// Test
   String res = "NO";
-@Test
+  @Test
 public void testCase1() {
   int input1 = 7;
   int input2 = 2;

@@ -5,8 +5,9 @@ import java.util.Random;
 class Solution {
 	
 	public static int[] quickSort(int[] arr) {
-		// StdRandom.shuffle(arr);
-		sort(arr, 0, arr.length - 1);
+        // StdRandom.shuffle(arr);
+        int n = arr.length;
+		sort(arr, 0, n - 1);
 		return arr;
 	}
 	
@@ -16,27 +17,27 @@ class Solution {
         arr[j] = temp;
     }
 	
-	private static void sort(int[] arr, int lo, int hi) { 
-        if (hi <= lo) return;
-        int j = partition(arr, lo, hi);
-        sort(arr, lo, j-1);
-        sort(arr, j+1, hi);
+	private static void sort(int[] arr, int low, int high) { 
+        if (high <= low) return;
+        int j = partition(arr, low, high);
+        sort(arr, low, j-1);
+        sort(arr, j+1, high);
 	}
 	
-	private static int partition(int[] arr, int lo, int hi) {
-        int i = lo;
-        int j = hi + 1;
+	private static int partition(int[] arr, int low, int high) {
+        int i = low;
+        int j = high + 1;
         while (true) {            
-            while (arr[++i] < arr[lo]) {
-                if (i == hi) break;
+            while (arr[++i] < arr[low]) {
+                if (i == high) break;
             }            
-            while (arr[lo] < arr[--j]) {
-                if (j == lo) break;      
+            while (arr[low] < arr[--j]) {
+                if (j == low) break;      
             }           
             if (i >= j) break;
             exch(arr, i, j);
         }       
-        exch(arr, lo, j);        
+        exch(arr, low, j);        
         return j;
     }
 }

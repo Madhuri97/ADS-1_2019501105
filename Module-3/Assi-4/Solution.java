@@ -1,3 +1,6 @@
+/**
+ * @author Madhuri
+ */
 class Solution{
 
 	public Team[] sort(Team[] teams){

@@ -2,20 +2,21 @@ class Solution {
 	public static String Josephus(int a, int b) {
 		// fill you code Here
 		CicularDoubleLinkedList cL = new CicularDoubleLinkedList();
+		/**
+		 * here we are adding nodes till the a number of members
+		 */
 		for (int i = 0; i < a; i++) {
 			Node node = new Node(i);
 
 			cL.add(i);
 		}
-
+		//Forming a circle using double linked list 
 		cL.formCircle();
 		int inx = 1;
 		Node temp = cL.head;
-		int eliminate
-		 = 0;
+		int eliminate = 0;
 		String toReturn =" ";
-		while(eliminate
-		 != a) {
+		while(eliminate != a) {
 			temp = temp.next;
 			inx++;
 			if(inx == b) {
@@ -28,8 +29,7 @@ class Solution {
 				prevNode.next = nextNode;
 				nextNode.prev = prevNode;
 
-				eliminate
-				++;
+				eliminate++;
 				temp = temp.next;
 			}
 		}

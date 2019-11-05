@@ -6,14 +6,11 @@ class ThreeSum {
 	Arrays.sort(arr); 
 	int n=arr.length;; 
 	int cnt=0;
-	for (int i=0; i<n-1; i++) 
-	{ 
+	for (int i=0; i<n-1; i++) { 
 		int before = i + 1; 
 		int next = n - 1; 
-		while (before < next) 
-		{ 
-			if (arr[i] + arr[before] + arr[next] == 0) 
-			{ 
+		while (before < next) { 
+			if (arr[i] + arr[before] + arr[next] == 0) { 
 				cnt++;	
 				before++; 
 				next--;  

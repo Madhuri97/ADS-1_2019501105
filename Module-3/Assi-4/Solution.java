@@ -1,16 +1,16 @@
 /**
  * @author Madhuri
  */
-class Solution{
+class Solution {
 
-	public Team[] sort(Team[] teams){
+	public Team[] sort(Team[] teams) {
 		// your code goes here
 		//selection sort 
 		int n = teams.length;
 		for(int i = 0; i < n - 1; i++){
 			int min = i;
-			for(int j = i + 1; j < n; j++){
-				if(teams[j].compareTo(teams[min]) == 1){
+			for(int j = i + 1; j < n; j++) {
+				if(teams[j].compareTo(teams[min]) == 1) {
 					min = j;
 				}
 			}
@@ -27,18 +27,18 @@ class Team implements Comparable<Team> {
 	int noOfWins;
 	int noOfLosses;
 	int noOfDraws;
-	Team(String name, int wins, int losses, int draws){
+	Team(String name, int wins, int losses, int draws) {
 		teamName = name;
 		noOfDraws = draws;
 		noOfWins = wins;
 		noOfLosses = losses;
 	}
 
-	public String toString(){
+	public String toString() {
 		//retrun all the attributes as a string but appending with ", "
 		return "";
 	}
-	public int compareTo(Team that){
+	public int compareTo(Team that) {
 		//primary conditions for number of wins
         if(this.noOfWins > that.noOfWins) {  
             return 1;
@@ -47,7 +47,7 @@ class Team implements Comparable<Team> {
             return -1;
 		}
 		//primary conditions for losses
-        else{
+        else {
             if(this.noOfLosses > that.noOfLosses) { 	 
                 return -1;
             }

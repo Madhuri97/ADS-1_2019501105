@@ -1,5 +1,5 @@
 /**
- * @author Taheniyath
+ * @author Madhuri
  */
 class Solution{
 	/**
@@ -10,32 +10,31 @@ class Solution{
 	 * Here we are using both min heap and max heap for the implementation.
 	 * Time complexity : O(n).
 	 */
-	public static double[] dynamicMedian(double[] arr){
+	public static double[] dynamicMedian(double[] arr) {
 		double median = 0;
 		int n = arr.length;
-		MaxPQ<Double>max = new MaxPQ();
-		MinPQ<Double>min = new MinPQ();
-		for(int i= 0;i<n;i++){
-			if(arr[i]>median){
+		MaxPQ<Double> max = new MaxPQ();
+		MinPQ<Double> min = new MinPQ();
+		for(int i = 0; i < n; i++) {
+			if(arr[i] > median) {
 				min.insert(arr[i]);
-			}else{
+			} else {
 				max.insert(arr[i]);
 			}
-			if(min.size()>max.size()+1){
+			if(min.size() > max.size() + 1) {
 				max.insert(min.delMin());
 			}
-			if(max.size()>min.size()+1){
+			if(max.size() > min.size() + 1) {
 				min.insert(max.delMax());
 			}
-			if(min.size() == max.size()){
-				median=(min.min()+max.max())/2;
-			}else if(min.size()>max.size()){
+			if(min.size() == max.size()) {
+				median = (min.min() + max.max()) / 2;
+			} else if(min.size() > max.size()) {
 				median = min.min();
-			}else{
+			} else {
 				median = max.max();
 			}
 			arr[i] = median;
-
 		}
 		return arr;
 	}

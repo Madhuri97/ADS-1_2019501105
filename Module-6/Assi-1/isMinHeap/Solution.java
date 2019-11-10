@@ -1,6 +1,6 @@
 /**
  * @author Madhuri
- * //min heap is bottom up approach
+ * min heap is bottom up approach
  */
 class Solution {
 	public static boolean isMinHeap(double[] arr) {

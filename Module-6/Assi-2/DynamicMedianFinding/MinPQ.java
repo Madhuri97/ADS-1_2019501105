@@ -1,5 +1,5 @@
 /**
- * @author Taheniyath
+ * @author Madhuri
  */
 import java.util.Comparator;
 import java.util.Iterator;
@@ -14,10 +14,10 @@ public class MinPQ<Key> implements Iterable<Key> {
     /**
      * Initializes an empty priority queue with the given initial capacity.
      *
-     * @param  initCapacity the initial capacity of this priority queue
+     * @param  Capacity the initial capacity of this priority queue
      */
-    public MinPQ(int initCapacity) {
-        pq = (Key[]) new Object[initCapacity + 1];
+    public MinPQ(int Capacity) {
+        pq = (Key[]) new Object[Capacity + 1];
         n = 0;
     }
 
@@ -32,12 +32,12 @@ public class MinPQ<Key> implements Iterable<Key> {
      * Initializes an empty priority queue with the given initial capacity,
      * using the given comparator.
      *
-     * @param  initCapacity the initial capacity of this priority queue
+     * @param  Capacity the initial capacity of this priority queue
      * @param  comparator the order in which to compare the keys
      */
-    public MinPQ(int initCapacity, Comparator<Key> comparator) {
+    public MinPQ(int Capacity, Comparator<Key> comparator) {
         this.comparator = comparator;
-        pq = (Key[]) new Object[initCapacity + 1];
+        pq = (Key[]) new Object[Capacity + 1];
         n = 0;
     }
 

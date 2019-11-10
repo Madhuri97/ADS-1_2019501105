@@ -12,17 +12,17 @@ public class BST<Key extends Comparable<Key>, Value> {
         public Value value;
         public Node left;
         public Node right;
-        public int count;
+        public int cnt;
         /**
          * Constructor for class Node
          * @param key
          * @param value
-         * @param count
+         * @param cnt
          */
-        public Node(Key key, Value value, int count) {
+        public Node(Key key, Value value, int cnt) {
             this.key = key;
             this.value = value;
-            this.count = count;
+            this.cnt = cnt;
         }
     }
     private Node root; 
@@ -48,7 +48,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         } else {
             n.value = value;
         }
-        n.count = 1 + size(n.left) + size(n.right);
+        n.cnt = 1 + size(n.left) + size(n.right);
         return n;
     }
     /**
@@ -84,7 +84,7 @@ public class BST<Key extends Comparable<Key>, Value> {
         if(n == null) {
             return 0;
         }
-        return n.count;
+        return n.cnt;
     }
     /**
      * Floor method returns the Key that is largest key less than or equal to key
@@ -152,7 +152,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             return n.right;
         }
         n.left = deleteMin(n.left);
-        n.count = 1 + size(n.left) + size(n.right);
+        n.cnt = 1 + size(n.left) + size(n.right);
         return n;
     }
     /**
@@ -167,7 +167,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             return n.left;
         }
         n.right = deleteMax(n.right);
-        n.count = 1 + size(n.right) + size(n.left);
+        n.cnt = 1 + size(n.right) + size(n.left);
         return n;
     }
     /**
@@ -199,7 +199,7 @@ public class BST<Key extends Comparable<Key>, Value> {
             n.right = deleteMin(t.right);
             n.left = t.left;
         }
-        n.count = size(n.left) + size(n.right) + 1;
+        n.cnt = size(n.left) + size(n.right) + 1;
         return n;
     }
     /**

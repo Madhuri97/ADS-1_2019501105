@@ -1,5 +1,6 @@
 /**
  * @author Madhuri
+ * @reference Robert Sedgewick
  * @param <Key>
  * @param <Value>
  */
@@ -108,8 +109,6 @@ public class SequentialSearchST<Key extends Comparable<Key>, Value> {
         temp.next = null;
         return val;
     }
-
-
 
     /**
      * Returns all keys in the symbol table as an {@code Iterable}.

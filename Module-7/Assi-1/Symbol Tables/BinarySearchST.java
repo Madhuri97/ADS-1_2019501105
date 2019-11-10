@@ -28,6 +28,7 @@ public class BinarySearchST<Key extends Comparable<Key>, Value> {
      * overwrites the old value with the new value.
      * @param key
      * @param val
+     * time complexity O(n)
      */
     public void put(final Key key, final Value val) {
         if (val == null) {

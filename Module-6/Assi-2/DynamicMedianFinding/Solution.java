@@ -1,27 +1,41 @@
-class Solution {
-	public static double[] dynamicMedian(double[] arr) {
-		double meadian = 0;
+/**
+ * @author Taheniyath
+ */
+class Solution{
+	/**
+	 * 
+	 * @param  arr double arr[]
+	 * @return arr
+	 * This method finds the median of the elements in the array when every element is added.
+	 * Here we are using both min heap and max heap for the implementation.
+	 * Time complexity : O(n).
+	 */
+	public static double[] dynamicMedian(double[] arr){
+		double median = 0;
 		int n = arr.length;
-		MaxPQ <Double> max = new MaxPQ() ;
-		MinPQ <Double> min = new MinPQ() ;
-		for(int i = 0; i < n; i++) {
-			if(arr[i] > meadian) {
+		MaxPQ<Double>max = new MaxPQ();
+		MinPQ<Double>min = new MinPQ();
+		for(int i= 0;i<n;i++){
+			if(arr[i]>median){
 				min.insert(arr[i]);
-			} else {
+			}else{
 				max.insert(arr[i]);
 			}
-			if(min.size() > max.size()+1) {
+			if(min.size()>max.size()+1){
 				max.insert(min.delMin());
 			}
-			if(min.size() > min.size()+1) {
+			if(max.size()>min.size()+1){
 				min.insert(max.delMax());
 			}
-			if(min.size() == max.size()) {
-				meadian = min.min();
-			} else {
-				meadian = max.max();
+			if(min.size() == max.size()){
+				median=(min.min()+max.max())/2;
+			}else if(min.size()>max.size()){
+				median = min.min();
+			}else{
+				median = max.max();
 			}
-			arr[i] = meadian;
+			arr[i] = median;
+
 		}
 		return arr;
 	}

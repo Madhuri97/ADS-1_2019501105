@@ -157,5 +157,6 @@ public class ResizingLinearProbing<Key, Value> {
         obj.put("iiit", 5);
         obj.delete("key");
         System.out.println(obj.get("key"));
+        System.out.println(obj.get("ads"));
     }
 }    

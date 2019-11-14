@@ -60,7 +60,7 @@ public class MinPQ<Key> implements Iterable<Key> {
      */
     public MinPQ(Key[] keys) {
         n = keys.length;
-        pq = (Key[]) new Object[keys.length + 1];
+        pq = (Key[]) new Object[n + 1];
         for (int i = 0; i < n; i++)
             pq[i+1] = keys[i];
         for (int k = n/2; k >= 1; k--)
@@ -215,7 +215,7 @@ public class MinPQ<Key> implements Iterable<Key> {
         // takes linear time since already in heap order so no keys move
         public HeapIterator() {
             if (comparator == null) copy = new MinPQ<Key>(size());
-            else                    copy = new MinPQ<Key>(size(), comparator);
+            else copy = new MinPQ<Key>(size(), comparator);
             for (int i = 1; i <= n; i++)
                 copy.insert(pq[i]);
         }
